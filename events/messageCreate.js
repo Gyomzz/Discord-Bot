@@ -1,10 +1,11 @@
+const { log } = require('node:console');
 const fs = require('node:fs');
 
 module.exports = {
 	name: 'messageCreate',
 	once: false,
 	execute(message) {
-        console.log(`message from ${message.channel.type} by ${message.author} -> ${message}`);
+        console.log(`message from ${message.author.username} in ${message.channelId} : ${message}`);
         if(message.content.toLowerCase() === '!help') {
             try {
                 message.channel.send('Voici la liste des commandes')
